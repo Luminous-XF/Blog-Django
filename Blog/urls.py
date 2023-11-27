@@ -21,7 +21,12 @@ from blogapp import views
 
 
 urlpatterns = [
-    path('index/', views.index)
+    path('index/', views.index),
+    path('insert-data/', views.insertData),
+    path('query-all/', views.queryAll),
+    path('query-by-id', views.queryById),
+    path('update-by-id', views.updateById),
+    path('delete-by-id', views.deleteById)
 ]
 
 
