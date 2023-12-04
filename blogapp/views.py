@@ -1,5 +1,7 @@
 from django.shortcuts import render, HttpResponse
+from django.http import JsonResponse
 from blogapp.models import UserInfo
+import uuid
 
 
 def index(request):
@@ -39,3 +41,13 @@ def deleteById(request):
     UserInfo.objects.filter(id=3).delete()
 
     return HttpResponse("Query ok!")
+
+
+def queryData(request):
+    res = dict()
+    res["data"] = dict()
+    res["code"] = 110
+    res["msg"] = "请求成功"
+    res["uuid"] = uuid.uuid1()
+
+    return HttpResponse(JsonResponse(res))
