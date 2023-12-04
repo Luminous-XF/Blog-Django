@@ -79,8 +79,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'iu_test',
         'USER': 'wxf',
-        'PASSWORD': 'wxf20010619xxx!',
-        'HOST': 'sh-cdb-4vsc6088.sql.tencentcdb.com',
+        'PASSWORD': 'wK4&nW8*wM9_pV9#',
+        'HOST': 'luminous-database-001.sql.com',
         'PORT': '63478'
     }
 }
