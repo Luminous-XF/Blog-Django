@@ -77,8 +77,8 @@ WSGI_APPLICATION = 'Blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'iu_test',
-        'USER': 'wxf',
+        'NAME': 'blog-dev',
+        'USER': 'xlj',
         'PASSWORD': 'wK4&nW8*wM9_pV9#',
         'HOST': 'luminous-database-001.sql.com',
         'PORT': '63478'
