@@ -24,10 +24,12 @@ urlpatterns = [
     path('index/', views.index),
     path('insert-data/', views.insertData),
     path('query-all/', views.queryAll),
-    path('query-by-id', views.queryById),
-    path('update-by-id', views.updateById),
-    path('delete-by-id', views.deleteById),
-    path('query-data', views.queryData)
+    path('query-by-id/', views.queryById),
+    path('update-by-id/', views.updateById),
+    path('delete-by-id/', views.deleteById),
+    path('query-data/', views.queryData),
+    path('post/', views.queryPostById),
+    path('post-list', views.queryPostList)
 ]
 
 

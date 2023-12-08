@@ -6,19 +6,23 @@ class UserInfo(models.Model):
     age = models.IntegerField()
     password = models.CharField(max_length=32, null=True, blank=True)
 
+
 class PostTypeChoice(models.TextChoices):
     COMMON = 'COMMON', 'Common'
     TOP = 'TOP', 'Top'
     ESSENCE = 'ESSENCE', 'Essence'
 
-class PoststatusChoice(models.TextChoices):
+
+class PostStatusChoice(models.TextChoices):
     NORMAL = 'NORMAL', 'Normal'
     AUDIT = 'AUDIT', 'Audit'
     BANNED = 'BANNED', 'Banned'
 
-class PostRow_StatusChoice(models.TextChoices):
+
+class RowStatusChoice(models.TextChoices):
     NORMAL = 'NORMAL', 'Normal'
     DELETE = 'DELETE', 'Delete'
+
 
 class Post(models.Model):
     uuid = models.CharField(max_length=36)
@@ -33,8 +37,8 @@ class Post(models.Model):
     score = models.FloatField(default=0.0)
     status = models.CharField(
         max_length=64,
-        choices=PoststatusChoice.choices,
-        default=PoststatusChoice.AUDIT
+        choices=PostStatusChoice.choices,
+        default=PostStatusChoice.AUDIT
     )
     likes = models.BigIntegerField(default=0)
     page_views = models.BigIntegerField(default=0)
@@ -42,24 +46,27 @@ class Post(models.Model):
     update_time = models.DateTimeField()
     row_status = models.CharField(
         max_length=64,
-        choices=PostRow_StatusChoice.choices,
-        default=PostRow_StatusChoice.NORMAL
+        choices=RowStatusChoice.choices,
+        default=RowStatusChoice.NORMAL
     )
 
 
-class UserUser_TypeChoice(models.TextChoices):
+class UserUserTypeChoice(models.TextChoices):
     ADMIN = 'ADMIN', 'Admin'
     COMMON = 'COMMON', 'Common'
 
-class UserUser_StatusChoice(models.TextChoices):
+
+class UserUserStatusChoice(models.TextChoices):
     COMMON = 'COMMON', 'Common'
     BANNED = 'BANNED', 'Banned'
     INACTIVATION = 'INACTIVATION', 'Inactivation'
 
+
 class UserGenderChoice(models.TextChoices):
-    MALE ='MALE', 'Male'
-    FEMALE ='FEMALE', 'Female'
+    MALE = 'MALE', 'Male'
+    FEMALE = 'FEMALE', 'Female'
     UNKNOWN = 'UNKNOWN', 'Unknown'
+
 
 class User(models.Model):
     uuid = models.CharField(max_length=36)
@@ -70,19 +77,19 @@ class User(models.Model):
     email = models.CharField(max_length=32)
     user_type = models.CharField(
         max_length=64,
-        choices=UserUser_TypeChoice.choices,
-        default=UserUser_TypeChoice.COMMON)
+        choices=UserUserTypeChoice.choices,
+        default=UserUserTypeChoice.COMMON)
     user_satus = models.CharField(
         max_length=64,
-        choices=UserUser_StatusChoice.choices,
-        default=UserUser_StatusChoice.INACTIVATION)
+        choices=UserUserStatusChoice.choices,
+        default=UserUserStatusChoice.INACTIVATION)
     activation_code = models.CharField(max_length=32)
     header_url = models.CharField(max_length=256)
     create_time = models.DateTimeField()
     gender = models.CharField(
         max_length=64,
         choices=UserGenderChoice.choices,
-                default=UserGenderChoice.UNKNOWN)
+        default=UserGenderChoice.UNKNOWN)
     brief = models.TextField()
     likes = models.BigIntegerField(default=0)
     page_views = models.BigIntegerField(default=0)
