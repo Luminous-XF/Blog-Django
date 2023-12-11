@@ -115,3 +115,11 @@ def queryPostList(request):
     res["msg"] = "请求成功"
 
     return HttpResponse(JsonResponse(res))
+
+
+def queryUserByUsername(request):
+    """
+    根据用户名查询某个用户的信息
+    :param request:
+    :return:
+    """
