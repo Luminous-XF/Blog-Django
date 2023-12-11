@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from blogapp.models import UserInfo
 import uuid
 from blogapp.models import Post
+from blogapp.models import User
 
 
 def index(request):
@@ -123,3 +124,25 @@ def queryUserByUsername(request):
     :param request:
     :return:
     """
+    data = {}
+    UserList = User.objects.filter(username="哈哈").first()
+    data["uuid"] = UserList.uuid
+    data["nickname"] = UserList.nickname
+    data["password"] = UserList.password
+    data["salt"] = UserList.salt
+    data["email"] = UserList.email
+    data["user_type"] = UserList.user_type
+    data["user_satus"] = UserList.user_satus
+    data["activation_code"] = UserList.activation_code
+    data["header_url"] = UserList.header_url
+    data["create_time"] = UserList.create_time
+    data["gender"] = UserList.gender
+    data["brief"] = UserList.brief
+    data["likes"] = UserList.likes
+    data["page_views"] = UserList.page_views
+    res = dict()
+    res["data"] = data
+    res["code"] = "200"
+    res["msg"] = "请求成功"
+
+    return HttpResponse(JsonResponse(res))

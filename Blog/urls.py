@@ -29,7 +29,8 @@ urlpatterns = [
     path('delete-by-id/', views.deleteById),
     path('query-data/', views.queryData),
     path('post/', views.queryPostById),
-    path('post-list/', views.queryPostList)
+    path('post-list/', views.queryPostList),
+    path('user-name/', views.queryUserByUsername)
 ]
 
 
