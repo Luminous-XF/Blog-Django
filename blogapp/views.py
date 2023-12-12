@@ -126,6 +126,7 @@ def queryUserByUsername(request):
     """
     data = {}
     UserList = User.objects.filter(username="哈哈").first()
+    postCount = Post.objects.filter(user_id=UserList.uuid).count()
     data["uuid"] = UserList.uuid
     data["nickname"] = UserList.nickname
     data["password"] = UserList.password
@@ -134,12 +135,13 @@ def queryUserByUsername(request):
     data["user_type"] = UserList.user_type
     data["user_satus"] = UserList.user_satus
     data["activation_code"] = UserList.activation_code
-    data["header_url"] = UserList.header_url
+    data["headerUrl"] = UserList.header_url
     data["create_time"] = UserList.create_time
     data["gender"] = UserList.gender
     data["brief"] = UserList.brief
     data["likes"] = UserList.likes
-    data["page_views"] = UserList.page_views
+    data["pageViews"] = UserList.page_views
+    data["postCount"] = postCount
     res = dict()
     res["data"] = data
     res["code"] = "200"
